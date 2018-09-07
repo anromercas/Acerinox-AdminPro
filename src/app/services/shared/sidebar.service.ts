@@ -14,6 +14,15 @@ export class SidebarService {
         { titulo : 'Situaciones de Riesgo', url: '/sdr' },
         { titulo : 'Posibles Soluciones', url: '/sdr' }
       ]
+    },
+    {
+      titulo: 'Mantenimiento',
+      icono: 'mdi mdi-folder-lock-open',
+      submenu: [
+        { titulo: 'Usuarios', url: '/usuarios' },
+        { titulo : 'Situaciones de Riesgo', url: '/sdr' },
+        { titulo : 'Posibles Soluciones', url: '/soluciones' }
+      ]
     }
   ];
 
