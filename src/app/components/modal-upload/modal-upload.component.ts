@@ -24,7 +24,7 @@ export class ModalUploadComponent implements OnInit {
   }
 
   clearForm() {
-    console.log('Aqui obtienes el elemento para atribuir algo vazio: ', this.inputFile.nativeElement);
+    console.log('Aqui obtienes el elemento para atribuir algo vacio: ', this.inputFile.nativeElement);
 
     this.inputFile.nativeElement.value = '';
   }

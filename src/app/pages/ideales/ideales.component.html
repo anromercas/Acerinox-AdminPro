@@ -1,0 +1,82 @@
+<div class="row animated bounceInDown">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+  
+          <input (keyup)="buscarSdr( input.value )" #input type="text" class="form-control" placeholder="Buscar solución de ideal...">
+  
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row animated bounceInRight" *ngIf="cargando">
+      <div class="col-sm-12">
+        <div class="alert alert-warning text-center">
+          <strong>Cargando</strong>
+          <br>
+          <i class="fa fa-refresh fa-spin fa-2x"></i>
+          <br>
+          <span>Espere por favor</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row animated fadeIn" *ngIf="!cargando">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+
+              <div class="text-right">
+                  <button type="button" class="btn btn-rounded btn-outline-success">
+                    <i class="fa fa-plus"> Crear Solución Ideal</i>
+                  </button>
+              </div>
+
+      
+              <h3 class="cardtitle">Soluciones Ideales creadas ( <small> {{ totalRegistros }} </small> ) </h3>
+    
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Departamento</th>
+                    <th>Responsable</th>
+                    <th>Estado</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let ideal of ideales">
+                    <td class="w70" > 
+                        <img (click)="mostrarModal( ideal._id )" [src]="ideal.img | imagen:'ideal'" class="img-50 pointer" > 
+                    </td>
+                    <td> {{ ideal.nombre }} </td>
+                    <td> {{ ideal.descripcion }} </td>
+                    <td> {{ ideal.departamento_implicado }} </td>
+                    <td> {{ ideal.responsable.nombre + ' ' + ideal.responsable.apellido }} </td>
+                    <td> {{ ideal.estado }} </td>
+
+                    <td></td>
+                    <td>
+                        <button (click)="editarIdeal( ideal )" class="btn btn-primary">
+                            <i class="fa fa-edit"> Editar</i>
+                          </button>
+                      <!-- <button (click)="guardarSdr( sdr )" class="btn btn-primary">
+                        <i class="fa fa-save"></i>
+                      </button> -->
+                      <button (click)="borrarIdeal( ideal )" class="btn btn-danger">
+                          <i class="fa fa-trash-o"> Borrar</i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                <button (click)="cambiarDesde(-5)" class="btn btn-secondary">Anteriores</button>
+                <button (click)="cambiarDesde(5)" class="btn btn-secondary">Siguientes</button>
+            </div>
+          </div>
+        </div>
+      </div>

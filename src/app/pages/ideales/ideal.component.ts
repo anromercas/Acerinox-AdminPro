@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-sdr',
-  templateUrl: './sdr.component.html',
+  selector: 'app-ideal',
+  templateUrl: './ideal.component.html',
   styles: []
 })
-export class SdrComponent implements OnInit {
+export class IdealComponent implements OnInit {
 
   constructor() { }
 

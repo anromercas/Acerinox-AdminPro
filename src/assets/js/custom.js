@@ -6,6 +6,23 @@ File: js
 */
 
 function init_plugins() {
+ // Basic
+ $('.dropify').dropify({
+  messages: {
+    default: 'Arrastras un archivo o click para subir',
+    replace: 'Arrastras un archivo o click para reemplazar',
+    remove: 'Borrar',
+    error: 'Archivo demasiado grande'
+}
+ });
+
+// Date Picker
+$('.mydatepicker, #datepicker').datepicker();
+$('#datepicker-autoclose').datepicker({
+    autoclose: true,
+    todayHighlight: true
+});
+
   $(function() {
     "use strict";
     $(function() {

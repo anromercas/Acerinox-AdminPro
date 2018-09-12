@@ -1,0 +1,93 @@
+<div class="row animated bounceInDown">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+  
+          <input (keyup)="buscarSdr( input.value )" #input type="text" class="form-control" placeholder="Buscar situación de riesgo...">
+  
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row animated bounceInRight" *ngIf="cargando">
+      <div class="col-sm-12">
+        <div class="alert alert-warning text-center">
+          <strong>Cargando</strong>
+          <br>
+          <i class="fa fa-refresh fa-spin fa-2x"></i>
+          <br>
+          <span>Espere por favor</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row animated fadeIn" *ngIf="!cargando">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+
+              <div class="text-right">
+                  <button [routerLink]="['/sdr','nuevo']" type="button" class="btn btn-rounded btn-outline-success">
+                    <i class="fa fa-plus"> Crear Situación de Riesgo</i>
+                  </button>
+              </div>
+
+      
+              <h3 class="cardtitle">Situaciones de Riesgo creadas ( <small> {{ totalRegistros }} </small> ) </h3>
+    
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <!-- <th>Codigo</th>
+                    <th>Zona</th>
+                    <th>Grupo</th> -->
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Estado</th>
+                    <th>probabilidad</th>
+                    <th>exposicion</th>
+                  <!--   <th>gravedad</th>
+                    <th>poblacion en riesgo</th>
+                    <th>visibilidad</th>
+                    <th>concreto</th>
+                    <th>creado_por</th>
+                    <th>estado</th>
+                    <th>coste</th>
+                    <th>fecha</th>
+                    <th>departamento</th> -->
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let sdr of sdrs">
+                    <td class="w70" > 
+                        <img (click)="mostrarModal( sdr._id )" [src]="sdr.img | imagen:'sdr'" class="img-50 pointer" > 
+                    </td>
+                    <td> {{ sdr.nombre }} </td>
+                    <td> {{ sdr.descripcion }} </td>
+                    <td> {{ sdr.estado }} </td>
+                    <td> {{ sdr.probabilidad }} </td>
+                    <td> {{ sdr.exposicion }} </td>
+                    <td></td>
+                    <td>
+                        <button [routerLink]="['/sdr/', sdr._id ]" class="btn btn-primary">
+                            <i class="fa fa-edit"> Editar</i>
+                          </button>
+                      <!-- <button (click)="guardarSdr( sdr )" class="btn btn-primary">
+                        <i class="fa fa-save"></i>
+                      </button> -->
+                      <button (click)="borrarSdr( sdr )" class="btn btn-danger">
+                          <i class="fa fa-trash-o"> Borrar</i>
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+                <button (click)="cambiarDesde(-5)" class="btn btn-secondary">Anteriores</button>
+                <button (click)="cambiarDesde(5)" class="btn btn-secondary">Siguientes</button>
+            </div>
+          </div>
+        </div>
+      </div>

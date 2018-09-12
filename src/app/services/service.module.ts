@@ -8,7 +8,9 @@ import {
   SharedService,
   UsuarioService,
   LoginGuard,
-  SubirArchivoService
+  SubirArchivoService,
+  SdrService,
+  IdealService
  } from './service.index';
 
 @NgModule({
@@ -22,7 +24,9 @@ import {
     UsuarioService,
     LoginGuard,
     SubirArchivoService,
-    ModalUploadService
+    ModalUploadService,
+    SdrService,
+    IdealService
   ],
   declarations: []
 })

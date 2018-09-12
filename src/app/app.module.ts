@@ -17,6 +17,7 @@ import { RegisterComponent } from './login/register.component';
 
 // Servicios
 import { ServiceModule } from './services/service.module';
+import { IdealComponent } from './pages/ideales/ideal.component';
 
 
 
@@ -24,7 +25,8 @@ import { ServiceModule } from './services/service.module';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    IdealComponent
   ],
   imports: [
     BrowserModule,

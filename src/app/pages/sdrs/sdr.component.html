@@ -1,0 +1,190 @@
+<div class="row animated zoomIn">
+    <div class="col-md-12">
+        <div class="card card-body">
+            <div class="text-left">
+                <button routerLink="/sdrs" type="button" class="btn btn-rounded btn-outline-warning">
+                    <i class="fa fa-rotate-left"> Atrás</i>
+                </button>
+            </div>
+            <br>
+            <h3 class="box-title m-b-0">Crear Situación de Riesgo</h3>
+            <p class="text-muted m-b-30 font-13"> {{_usuarioService.usuario.nombre + ' ' + _usuarioService.usuario.apellido}}
+                Está creando una Situación de Riesgo
+            </p>
+            <div class="row">
+
+                <div class="col-sm-12 col-xs-12">
+                    <form [formGroup]="forma" ngNativeValidate (ngSubmit)="guardarSdr()">
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label for="nombre">Nombre de la situación</label>
+                                <input formControlName="nombre" type="text" class="form-control" name="nombre" placeholder="Nombre">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="estado">Estado</label>
+                                <select formControlName="estado" name="estado" class="form-control">
+                                    <option value="">-- selecciona una opción --</option>
+                                    <option value="BORRADOR">BORRADOR</option>
+                                    <option value="VALIDACION">VALIDACION</option>
+                                    <option value="EN CREACION">EN CREACION</option>
+                                    <option value="PENDIENTE APROBACION">PENDIENTE APROBACION</option>
+                                    <option value="TERMINADO">TERMINADO</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label for="descripcion">Descripción</label>
+                                <textarea formControlName="descripcion" rows="10" class="form-control" name="descripcion" placeholder="Descripción"></textarea>
+                            </div>
+
+                            
+                                <div class="col-md-4">
+                                        <div class="card card-body" >
+                                            <label for="imagen">Subir Imagen</label><br>
+                                            <img (click)="cambiarImagen()" [src]="sdr.img | imagen:'sdr'" class="rounded img-fluid pointer ">
+                                            <!-- <input formControlName="imagen"  name="imagen" type="file" id="input-file-now" class="dropify"> -->
+                                        </div>
+                                </div>
+                            
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="creado_por">Creado por</label> <br>
+                                <h3 type="text" class="form-control" name="creado_por">{{ _usuarioService.usuario.nombre
+                                    + ' ' + _usuarioService.usuario.apellido }} </h3>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="fecha">fecha</label>
+                                <div class="input-group date">
+                                    <input formControlName="fecha" type="text" name="fecha" class="form-control" id="datepicker-autoclose" placeholder="mm/dd/yyyy">
+                                    <span class="input-group-addon"><i class="icon-calender"></i></span>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="grupo">Grupo</label>
+                                <input formControlName="grupo" type="text" class="form-control" name="grupo" placeholder="grupo">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="departamento">Departamento</label>
+                                <select formControlName="departamento" name="departamento" class="form-control">
+                                    <option value="">-- selecciona una opción --</option>
+                                    <option value="ACERIA">ACERIA</option>
+                                    <option value="LC">LAMINADO CALIENTE</option>
+                                    <option value="LF">LAMINADO FRIO</option>
+                                    <option value="M. MECÁNICO">M. MECÁNICO</option>
+                                    <option value="M. ELÉCTRICO">M. ELÉCTRICO</option>
+                                    <option value="SEG-MA">SEG-MA</option>
+                                    <option value="TECNICO">TECNICO</option>
+                                    <option value="S. INFO">S. INFO</option>
+                                    <option value="ADMON">ADMON</option>
+                                    <option value="PERSONAL">PERSONAL</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="zona">Zona</label>
+                                <input formControlName="zona" type="text" class="form-control" name="zona" placeholder="Zona">
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="probabilidad">Probabilidad</label>
+                                <select formControlName="probabilidad" name="probabilidad" class="form-control">
+                                    <option value="">-- selecciona una opción --</option>
+                                    <option value="MUY ALTA">MUY ALTA</option>
+                                    <option value="ALTA">ALTA</option>
+                                    <option value="OCASIONAL">OCASIONAL</option>
+                                    <option value="IRREGULARMENTE">IRREGULARMENTE</option>
+                                    <option value="RARA">RARA</option>
+                                    <option value="REMOTA">REMOTA</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="exposicion">Exposicion</label>
+                                <select formControlName="exposicion" name="exposicion" class="form-control">
+                                    <option value="">-- selecciona una opción --</option>
+                                    <option value="TODA PROBABILIDAD">TODA PROBABILIDAD</option>
+                                    <option value="POSIBLEMENTE">POSIBLEMENTE</option>
+                                    <option value="ESCASA">ESCASA</option>
+                                    <option value="MUY RARA">MUY RARA</option>
+                                    <option value="NUNCA HA OCURRIDO">NUNCA HA OCURRIDO</option>
+                                    <option value="PRACTICAMENTE IMPOSIBLE">PRACTICAMENTE IMPOSIBLE</option>
+                                </select>
+
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="gravedad">Gravedad</label>
+                                <select formControlName="gravedad" name="gravedad" class="form-control">
+                                    <option value="">-- selecciona una opción --</option>
+                                    <option value="CATASTROFE">CATASTROFE</option>
+                                    <option value="VARIAS MUERTES">VARIAS MUERTES</option>
+                                    <option value="MUERTE">MUERTE</option>
+                                    <option value="LESIONES MUY GRAVES">LESIONES MUY GRAVES</option>
+                                    <option value="LESIONES CON BAJA">LESIONES CON BAJA</option>
+                                    <option value="HERIDAS LEVES">HERIDAS LEVES</option>
+                                </select>
+
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="poblacion_en_riesgo">Poblacion en Riesgo</label>
+                                <select formControlName="poblacion_en_riesgo" name="poblacion_en_riesgo" class="form-control">
+                                    <option value="">-- selecciona una opción --</option>
+                                    <option value="TODA LA PLANTA">TODA LA PLANTA</option>
+                                    <option value="1.000 A 2.000">1.000 A 2.000</option>
+                                    <option value="300 A 1.000">300 A 1.000</option>
+                                    <option value="100 A 300">100 A 300</option>
+                                    <option value="50 A 100">50 A 100</option>
+                                    <option value="MENOS DE 50">MENOS DE 50</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="visibilidad">Visibilidad</label>
+                                <select formControlName="visibilidad" name="visibilidad" class="form-control">
+                                    <option value="">-- selecciona una opción --</option>
+                                    <option value="MUY ALTA">MUY ALTA</option>
+                                    <option value="ALTA">ALTA</option>
+                                    <option value="MEDIA">MEDIA</option>
+                                    <option value="BAJA">BAJA</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="concreto">Concreto</label>
+                                <select formControlName="concreto" name="concreto" class="form-control">
+                                    <option value="">-- selecciona una opción --</option>
+                                    <option value="Si">Si</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="coste">Coste</label>
+                                <div class="input-group date">
+                                    <input formControlName="coste" type="number" class="form-control" name="coste" placeholder="Coste">
+                                    <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success waves-effect waves-light m-r-10"><i class="fa fa-save">Guardar</i></button>
+                        <a routerLink="/sdrs" class="btn btn-inverse waves-effect waves-light ">Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row animated zoomIn" *ngIf="sdr._id">
+    <div class="col-md-12">
+            <div class="card card-body" >
+                <label for="imagen">Subir Imagen</label><br>
+                <img (click)="cambiarImagen()" [src]="sdr.img | imagen:'sdr'" class="rounded img-fluid pointer ">
+                <!-- <input formControlName="imagen"  name="imagen" type="file" id="input-file-now" class="dropify"> -->
+            </div>
+    </div>
+</div>

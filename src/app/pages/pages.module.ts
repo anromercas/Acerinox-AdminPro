@@ -1,23 +1,25 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 // Rutas
 import { PAGES_ROUTES } from './pages.routes';
 
 // Modulos
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Pipes Module
 import { PipesModule } from '../pipes/pipes.module';
 
 // Componentes
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SdrComponent } from './sdr/sdr.component';
+import { SdrComponent } from './sdrs/sdr.component';
 import { PagesComponent } from './pages.component';
-import { FormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
-import { CommonModule } from '@angular/common';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
+import { SdrsComponent } from './sdrs/sdrs.component';
+import { IdealesComponent } from './ideales/ideales.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { ModalUploadComponent } from '../components/modal-upload/modal-upload.co
         SdrComponent,
         ProfileComponent,
         UsuariosComponent,
-        ModalUploadComponent
+        ModalUploadComponent,
+        SdrsComponent,
+        IdealesComponent
     ],
     exports: [
         PagesComponent,
@@ -39,7 +43,8 @@ import { ModalUploadComponent } from '../components/modal-upload/modal-upload.co
         PAGES_ROUTES,
         FormsModule,
         PipesModule,
-        CommonModule
+        CommonModule,
+        ReactiveFormsModule
         // ChartsModule
     ]
 })
