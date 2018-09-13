@@ -21,24 +21,26 @@ import { ModalUploadComponent } from '../components/modal-upload/modal-upload.co
 import { SdrsComponent } from './sdrs/sdrs.component';
 import { IdealesComponent } from './ideales/ideales.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
+import { IdealComponent } from './ideales/ideal.component';
 
 
 @NgModule({
     declarations: [
-        PagesComponent,
+       // PagesComponent,
         DashboardComponent,
         SdrComponent,
         ProfileComponent,
         UsuariosComponent,
-        ModalUploadComponent,
+        // ModalUploadComponent,
         SdrsComponent,
         IdealesComponent,
+        IdealComponent,
         BusquedaComponent
     ],
     exports: [
-        PagesComponent,
+        // PagesComponent,
         DashboardComponent,
-        SdrComponent,
+        SdrComponent
     ],
     imports: [
         SharedModule,

@@ -6,6 +6,7 @@ import { APP_ROUTES } from './app.routes';
 
 // Modulos
 import { PagesModule } from './pages/pages.module';
+import { SharedModule } from './shared/shared.module';
 
 // temporal
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
+import { PagesComponent } from './pages/pages.component';
 
 // Servicios
 import { ServiceModule } from './services/service.module';
@@ -26,15 +28,17 @@ import { IdealComponent } from './pages/ideales/ideal.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    IdealComponent
+    // IdealComponent,
+    PagesComponent
   ],
   imports: [
     BrowserModule,
     APP_ROUTES,
-    PagesModule,
+    // PagesModule,
     ServiceModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
