@@ -1,0 +1,108 @@
+<div class="row animated bounceInRight" *ngIf="cargando">
+    <div class="col-sm-12">
+      <div class="alert alert-warning text-center">
+        <strong>Cargando</strong>
+        <br>
+        <i class="fa fa-refresh fa-spin fa-2x"></i>
+        <br>
+        <span>Espere por favor</span>
+      </div>
+    </div>
+  </div>
+
+<div class="row" *ngIf="!cargando">
+  <div class="card col-md-12">
+    <div class="card-body">
+      <h4 class="card-title">Usuarios</h4>
+        <table class="table table-hover" *ngIf="usuarios.length > 0">
+          <tbody>
+            <tr *ngFor="let usuario of usuarios"
+                [routerLink]="['/usuarios']" class="pointer">
+              <td>
+                <img [src]="usuario.img | imagen" class="img-50 img-circle">
+              </td>
+              <td> {{ usuario.nombre }} </td>
+              <td> {{ usuario.apellido }} </td>
+              <td> {{ usuario.email }} </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="alert alert-info" *ngIf="usuarios.length === 0"> No hay registros</div>
+    </div>
+  </div>
+
+  <div class="card col-md-12" *ngIf="!cargando">
+    <div class="card-body">
+      <h4 class="card-title">Situaciones de Riesgo</h4>
+        <table class="table table-hover" *ngIf="sdr.length > 0">
+            <thead>
+                <tr>
+                  <th>Imagen</th>
+                  <th>Nombre</th>
+                  <th>Fecha</th>
+                  <th>Departamento</th>
+                  <th>Estado</th>
+                  <th>probabilidad</th>
+                  <th>exposicion</th> 
+                  <th>coste</th>
+                  <th></th>
+                </tr>
+              </thead>
+          <tbody>
+            <tr *ngFor="let sdr of sdrs"
+            [routerLink]="['/sdr', sdr._id]" class="pointer">
+              <td>
+                <img [src]="sdr.img | imagen:'sdr'" class="img-50 img-circle">
+              </td>
+                  <td> {{ sdr.nombre }} </td>
+                  <td> {{ sdr.fecha }} </td>
+                  <td> {{ sdr.departamento }} </td>
+                  <td> {{ sdr.estado }} </td>
+                  <td> {{ sdr.probabilidad }} </td>
+                  <td> {{ sdr.exposicion }} </td>
+                  <td> {{ sdr.coste }} </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="alert alert-info" *ngIf="sdr.length === 0"> No hay registros</div>
+    </div>
+  </div>
+
+  <div class="card col-md-12" *ngIf="!cargando">
+    <div class="card-body">
+      <h4 class="card-title">Soluciones Ideales</h4>
+        <table class="table table-hover" *ngIf="ideal.length > 0">
+            <thead>
+                <tr>
+                  <th>Imagen</th>
+                  <th>Nombre</th>
+                  <th>Fecha</th>
+                  <th>Departamento</th>
+                  <th>Estado</th>
+                  <th>probabilidad</th>
+                  <th>exposicion</th> 
+                  <th>coste</th>
+                  <th></th>
+                </tr>
+              </thead>
+          <tbody>
+            <tr *ngFor="let ideal of ideales"
+            [routerLink]="['/ideal', ideal._id]" class="pointer">
+              <td>
+                <img [src]="ideal.img | imagen:'ideal'" class="img-50 img-circle">
+              </td>
+                  <td> {{ ideal.nombre }} </td>
+                  <td> {{ ideal.fecha }} </td>
+                  <td> {{ ideal.departamento }} </td>
+                  <td> {{ ideal.estado }} </td>
+                  <td> {{ ideal.probabilidad }} </td>
+                  <td> {{ ideal.exposicion }} </td>
+                  <td> {{ ideal.coste }} </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="alert alert-info" *ngIf="ideal.length === 0"> No hay registros</div>
+    </div>
+  </div>
+
+</div>

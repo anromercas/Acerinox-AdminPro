@@ -20,6 +20,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 import { SdrsComponent } from './sdrs/sdrs.component';
 import { IdealesComponent } from './ideales/ideales.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { IdealesComponent } from './ideales/ideales.component';
         UsuariosComponent,
         ModalUploadComponent,
         SdrsComponent,
-        IdealesComponent
+        IdealesComponent,
+        BusquedaComponent
     ],
     exports: [
         PagesComponent,

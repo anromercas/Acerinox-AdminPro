@@ -12,7 +12,7 @@
                 Está creando una Situación de Riesgo
             </p>
             <div class="row">
-
+                    <p>Hoy es {{today | date}}</p>
                 <div class="col-sm-12 col-xs-12">
                     <form [formGroup]="forma" ngNativeValidate (ngSubmit)="guardarSdr()">
                         <div class="row">
@@ -94,13 +94,13 @@
                             <div class="form-group col-md-4">
                                 <label for="probabilidad">Probabilidad</label>
                                 <select formControlName="probabilidad" name="probabilidad" class="form-control">
-                                    <option value="">-- selecciona una opción --</option>
-                                    <option value="MUY ALTA">MUY ALTA</option>
-                                    <option value="ALTA">ALTA</option>
-                                    <option value="OCASIONAL">OCASIONAL</option>
-                                    <option value="IRREGULARMENTE">IRREGULARMENTE</option>
-                                    <option value="RARA">RARA</option>
-                                    <option value="REMOTA">REMOTA</option>
+                                        <option value="">-- selecciona una opción --</option>
+                                        <option value="TODA PROBABILIDAD">TODA PROBABILIDAD</option>
+                                        <option value="POSIBLEMENTE">POSIBLEMENTE</option>
+                                        <option value="ESCASA">ESCASA</option>
+                                        <option value="MUY RARA">MUY RARA</option>
+                                        <option value="NUNCA HA OCURRIDO">NUNCA HA OCURRIDO</option>
+                                        <option value="PRACTICAMENTE IMPOSIBLE">PRACTICAMENTE IMPOSIBLE</option>
                                 </select>
                             </div>
                         </div>
@@ -108,13 +108,13 @@
                             <div class="form-group col-md-4">
                                 <label for="exposicion">Exposicion</label>
                                 <select formControlName="exposicion" name="exposicion" class="form-control">
-                                    <option value="">-- selecciona una opción --</option>
-                                    <option value="TODA PROBABILIDAD">TODA PROBABILIDAD</option>
-                                    <option value="POSIBLEMENTE">POSIBLEMENTE</option>
-                                    <option value="ESCASA">ESCASA</option>
-                                    <option value="MUY RARA">MUY RARA</option>
-                                    <option value="NUNCA HA OCURRIDO">NUNCA HA OCURRIDO</option>
-                                    <option value="PRACTICAMENTE IMPOSIBLE">PRACTICAMENTE IMPOSIBLE</option>
+                                        <option value="">-- selecciona una opción --</option>
+                                        <option value="MUY ALTA">MUY ALTA</option>
+                                        <option value="ALTA">ALTA</option>
+                                        <option value="OCASIONAL">OCASIONAL</option>
+                                        <option value="IRREGULARMENTE">IRREGULARMENTE</option>
+                                        <option value="RARA">RARA</option>
+                                        <option value="REMOTA">REMOTA</option>
                                 </select>
 
                             </div>
@@ -157,6 +157,11 @@
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="concreto">Concreto</label>
+                                <div class="switch">
+                                    <label>No
+                                    <input type="checkbox" checked=""><span class="lever">
+                                    </span>Si</label>
+                                </div>
                                 <select formControlName="concreto" name="concreto" class="form-control">
                                     <option value="">-- selecciona una opción --</option>
                                     <option value="Si">Si</option>

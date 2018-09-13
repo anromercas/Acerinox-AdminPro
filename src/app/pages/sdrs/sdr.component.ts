@@ -5,6 +5,8 @@ import { SdrService } from '../../services/service.index';
 import { UsuarioService } from '../../services/usuario/usuario.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ModalUploadService } from '../../components/modal-upload/modal-upload.service';
+import { DatePipe } from '@angular/common';
+import { IfStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-sdr',
@@ -15,7 +17,8 @@ export class SdrComponent implements OnInit {
 
    sdr: Sdr = new Sdr('', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0);
   // sdr: Sdr;
-  fecha = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
+  today: number = Date.now();
+   fecha = new DatePipe('');
   forma: FormGroup;
   id: string;
 
@@ -35,6 +38,12 @@ export class SdrComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.fecha.transform);
+
+    /* if ( this.id === 'nuevo' ) {
+      console.log(this.id);
+      this.forma.get('estado').setValue('BORRADOR');
+    } */
 
     this._modalUploadService.notificacion
     .subscribe( resp =>  {
@@ -57,24 +66,23 @@ export class SdrComponent implements OnInit {
       concreto: new FormControl( null, Validators.required ),
       coste: new FormControl( null, Validators.required )
   });
-/*
+
   this.forma.setValue({
       nombre: 'Test ',
       estado: 'BORRADOR',
       descripcion: 'Test ',
-      fecha: this.fecha,
+      fecha: Date().toLocaleLowerCase(),
       grupo: '5b962b343ec55f42c0218d32',
       departamento: 'ACERIA',
       zona: 'Test ',
-      probabilidad: 'ALTA',
-      exposicion: 'ESCASA',
+      probabilidad: 'ESCASA',
+      exposicion: 'ALTA',
       gravedad: 'CATASTROFE',
       poblacion_en_riesgo: 'MENOS DE 50',
       visibilidad: 'ALTA',
       concreto: 'Si',
-      coste: 1000,
-      imagen: null,
-  }); */
+      coste: 1000
+  });
   }
 
   cambiarImagen() {
@@ -124,7 +132,8 @@ export class SdrComponent implements OnInit {
       valor.departamento,
       valor.coste
     );
-    console.log(this.sdr);
+    console.log(this.forma.value.fecha);
+
     this._sdrService.crearSdr( this.sdr )
                     .subscribe( sdr => {
                       this.sdr._id = sdr._id;

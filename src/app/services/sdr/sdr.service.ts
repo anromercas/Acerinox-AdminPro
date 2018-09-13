@@ -46,7 +46,7 @@ export class SdrService {
   crearSdr( sdr: Sdr ) {
     let url = URL_SERVICIOS + '/sdr';
 
-    if ( sdr._id  ) {
+    if ( sdr._id !== 'nuevo'  ) {
       // actualizando
       url += '/' + sdr._id;
       url += '?token=' + this._usuarioService.token;
