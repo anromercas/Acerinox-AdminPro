@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { APP_ROUTES } from './app.routes';
 
 // Modulos
-import { PagesModule } from './pages/pages.module';
 import { SharedModule } from './shared/shared.module';
 
 // temporal
@@ -19,7 +18,7 @@ import { PagesComponent } from './pages/pages.component';
 
 // Servicios
 import { ServiceModule } from './services/service.module';
-import { IdealComponent } from './pages/ideales/ideal.component';
+import { PipesModule } from './pipes/pipes.module';
 
 
 
@@ -38,7 +37,8 @@ import { IdealComponent } from './pages/ideales/ideal.component';
     ServiceModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    PipesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

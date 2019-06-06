@@ -6,6 +6,8 @@ File: js
 */
 
 function init_plugins() {
+
+  
  // Basic
  $('.dropify').dropify({
   messages: {
